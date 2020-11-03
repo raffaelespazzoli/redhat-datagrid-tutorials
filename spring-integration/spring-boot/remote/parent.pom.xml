@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.infinispan.tutorial.simple</groupId>
+    <artifactId>infinispan-simple-tutorials</artifactId>
+    <version>1.0.0.CR2-redhat-00001</version>
+    <packaging>pom</packaging>
+
+    <name>Infinispan Tutorial: Simple tutorials</name>
+
+    <properties>
+       <version.infinispan>11.0.3.Final-redhat-00001</version.infinispan>
+       <version.spring.boot>2.3.1.RELEASE</version.spring.boot>
+       <version.spring.session>2.3.0.RELEASE</version.spring.session>
+       <version.infinispan.spring.boot>2.3.3.Final-redhat-00001</version.infinispan.spring.boot>
+       <version.micrometer.registry.prometheus>1.5.2</version.micrometer.registry.prometheus>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.infinispan</groupId>
+                <artifactId>infinispan-bom</artifactId>
+                <version>${version.infinispan}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+               <groupId>javax.transaction</groupId>
+               <artifactId>transaction-api</artifactId>
+               <version>1.1</version>
+           </dependency>
+           <dependency>
+               <groupId>javax.cache</groupId>
+               <artifactId>cache-api</artifactId>
+               <version>1.1.0.redhat-1</version>
+           </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.1</version>
+                    <configuration>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>exec-maven-plugin</artifactId>
+                    <version>1.6.0</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+      <plugin>
+        <groupId>org.commonjava.maven.plugins</groupId>
+        <artifactId>project-sources-maven-plugin</artifactId>
+        <version>1.0</version>
+        <executions>
+          <execution>
+            <id>project-sources-archive</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>archive</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+    </build>
+
+    <modules>
+       <module>map</module>
+       <module>distributed</module>
+       <module>replicated</module>
+       <module>jcache</module>
+       <module>functional</module>
+       <module>spring-integration/spring/simple-spring</module>
+       <module>spring-integration/spring/spring-session</module>
+       <module>spring-integration/spring-boot/embedded</module>
+       <module>spring-integration/spring-boot/remote</module>
+       <module>spring-integration/spring-boot/session-embedded</module>
+       <module>spring-integration/spring-boot/session-remote</module>
+       <module>tx</module>
+       <module>clusterexec</module>
+       <module>streams</module>
+       <module>remote</module>
+       <module>remote-secured</module>
+       <module>scripting</module>
+       <module>query</module>
+       <module>listen</module>
+       <module>remote-listen</module>
+       <module>counter</module>
+       <module>server-tasks</module>
+       <module>multimap</module>
+       <module>lock</module>
+       <module>remote-admin-create-cache</module>
+       <module>remote-tx</module>
+       <module>remote-counter</module>
+       <module>remote-multimap</module>
+       <module>remote-query</module>
+       <module>remote-per-cache</module>
+       <module>near-cache</module>
+       <module>remote-continuous-query</module>
+       <module>invalidation-mode</module>
+    </modules>
+</project>
+<!--
+Modified by POM Manipulation Extension for Maven 3.8.1 ( SHA: 24b97b2e ) 
+-->
